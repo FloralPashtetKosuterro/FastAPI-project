@@ -10,8 +10,9 @@ def read_root():
 
 @app.get("/items/{item_id}")
 async def read_item(item_id):
-    if item_id == "2":
-        return{"Вы перешли куда-то не туда"}
+    item_id=int(item_id)
+    if item_id > 1:
+        return{f"Вы перешли куда-то не туда по id: {item_id}, попробуйте использовать id 1"}
     else:
-        result = int(item_id + item_id)
-    return {"Результат сложения айди по джаваскрипту :^)": result}
+        result = item_id + item_id
+    return {"Результат сложения айди": result}
